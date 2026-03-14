@@ -1,8 +1,17 @@
 # EC Creator Skill
 
-> **Version: 1.0.0** | Execution Card Linter & Validator
+> **Version: 1.1.0** | Execution Card Linter & Validator with Auto-Fix
 
 A validation and correction tool for creating standardized Execution Cards.
+
+---
+
+## What's New in v1.1.0
+
+- **Python-based**: Data-driven validation using JSON rules (no hard-coding)
+- **Auto-Fix Suggestions**: Returns copy-pasteable Markdown snippets for common issues
+- **Real Skill Scanning**: Actually checks `~/.openclaw/skills/` directory for skill existence
+- **Enhanced Error Messages**: More actionable guidance
 
 ---
 
