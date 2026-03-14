@@ -2,120 +2,177 @@
 
 ![OpenExCard Banner](docs/OpenExCard.jpg)
 
-**Open Agent Execution Cards** - Production-ready workflow cards for AI agents
+**Open Agent Execution Cards** - Production-ready workflow cards for AI agents  
+**开放执行卡片** - 可直接用于生产的 AI Agent 工作流卡片
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## What is OpenExCard?
+---
+
+## What is OpenExCard? / 什么是 OpenExCard？
 
 OpenExCard is a collection of **production-ready Execution Cards (ECs)** for AI agent workflows.
 
+OpenExCard 是一系列**可直接用于生产的执行卡片（EC）**集合，专为 AI Agent 工作流设计。
+
 Unlike examples or tutorials, each ExCard is:
-- ✅ **Battle-tested** - Used in real production environments
-- ✅ **Ready to use** - Just modify config paths and run
-- ✅ **Well-documented** - Dependencies, requirements, and caveats clearly listed
-- ✅ **Self-contained** - Each card has its own folder with EC and documentation
 
-## Repository Structure
+与示例或教程不同，每张 ExCard 都具备：
 
-```
-openexcard/
-├── README.md                    # This file
-├── LICENSE                      # MIT License
-├── SPEC.md                      # (Coming soon) Full specification
-├── ExCard/                      # Production-ready execution cards
-│   ├── daily-report/            # Daily research report publishing
-│   │   ├── EC-001.md           # The execution card
-│   │   └── README.md           # Dependencies & usage guide
-│   ├── prospecting/             # Active prospecting & outreach
-│   │   ├── EC-002.md
-│   │   └── README.md
-│   └── engagement/              # Community engagement & support
-│       ├── EC-003.md
-│       └── README.md
-└── templates/                   # Reusable templates
-    └── ec-template.md          # Template for creating new ECs
-```
-
-## Quick Start
-
-### 1. Choose an ExCard
-Browse the `ExCard/` directory and pick a card that fits your needs.
-
-### 2. Check Dependencies
-Each card has a `README.md` with:
-- Required skills (with installation links)
-- Input data requirements
-- Configuration parameters
-- Usage caveats
-
-### 3. Configure
-Modify the configuration parameters (paths, API keys, etc.) to match your setup.
-
-### 4. Execute
-Run the EC through your agent's execution system (e.g., OpenClaw heartbeat).
-
-## Example: Daily Report Publishing
-
-```bash
-# Navigate to the card
-cd ExCard/daily-report/
-
-# Read the documentation
-cat README.md
-
-# Check dependencies
-# - moltbook skill installed?
-# - Input report available?
-# - API key configured?
-
-# Modify EC-001.md with your paths
-# Then execute via your agent framework
-```
-
-## Why OpenExCard?
-
-| Problem | Traditional | OpenExCard |
-|---------|-------------|------------|
-| **Not production-ready** | Examples lack error handling | Battle-tested with real usage |
-| **Unclear dependencies** | Hidden assumptions | Explicit requirements in README |
-| **Hard to customize** | One-size-fits-all | Configurable parameters |
-| **No context** | Isolated snippets | Full workflow with documentation |
-
-## Contributing
-
-Want to contribute an ExCard?
-
-1. Use the [template](templates/ec-template.md)
-2. Test in production for at least 1 week
-3. Document all dependencies and caveats
-4. Submit a PR
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
-## Current Cards
-
-| Card | Description | Status |
-|------|-------------|--------|
-| [EC-001: Daily Report](ExCard/daily-report/) | Publish daily research reports to Moltbook | ✅ Production |
-| [EC-002: Prospecting](ExCard/prospecting/) | Active prospecting on social platforms | ✅ Production |
-| [EC-003: Engagement](ExCard/engagement/) | Community engagement and support | ✅ Production |
-
-## Roadmap
-
-- [ ] Add more marketing cards (email outreach, content scheduling)
-- [ ] Add research cards (data collection, report generation)
-- [ ] Create adapters for other agent frameworks (CrewAI, LangGraph)
-- [ ] Build a registry/discovery system
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file
-
-## Acknowledgments
-
-OpenExCard was developed by [Noah](https://github.com/noah-1106) while building [Moltbook](https://www.moltbook.com) daily research reports with AI agents.
+- ✅ **Battle-tested** - Used in real production environments  
+  **实战检验** - 在真实生产环境中使用过
+  
+- ✅ **Ready to use** - Just modify config paths and run  
+  **开箱即用** - 只需修改配置路径即可运行
+  
+- ✅ **Well-documented** - Dependencies, requirements, and caveats clearly listed  
+  **文档完善** - 清晰列出依赖、需求和注意事项
+  
+- ✅ **Self-contained** - Each card has its own folder with EC and documentation  
+  **独立完整** - 每张卡片都有独立的文件夹，包含 EC 和文档
 
 ---
 
-**Note**: Each ExCard may have specific skill dependencies. Always check the card's README.md before use.
+## Repository Structure / 仓库结构
+
+```
+openexcard/
+├── README.md                    # This file / 本文件
+├── LICENSE                      # MIT License / MIT 许可证
+├── SPEC.md                      # (Coming soon) Full specification / （即将推出）完整规范
+├── ExCard/                      # Production-ready execution cards / 可直接用于生产的执行卡片
+│   ├── daily-report/            # Daily research report publishing / 每日研究报告发布
+│   │   ├── EC-001.md           # The execution card / 执行卡片主体
+│   │   └── README.md           # Dependencies & usage guide / 依赖与使用指南
+│   ├── prospecting/             # Active prospecting & outreach / 主动获客与推广
+│   │   ├── EC-002.md
+│   │   └── README.md
+│   └── engagement/              # Community engagement & support / 社区互动与支持
+│       ├── EC-003.md
+│       └── README.md
+└── templates/                   # Reusable templates / 可复用模板
+    ├── execution-card-template_en.md  # English template / 英文模板
+    └── execution-card-template_cn.md  # Chinese template / 中文模板
+```
+
+---
+
+## Quick Start / 快速开始
+
+### 1. Choose an ExCard / 选择一张 ExCard
+
+Browse the `ExCard/` directory and pick a card that fits your needs.
+
+浏览 `ExCard/` 目录，选择适合你需求的卡片。
+
+### 2. Check Dependencies / 检查依赖
+
+Each card has a `README.md` with:
+
+每张卡片都包含 `README.md`，其中有：
+
+- Required skills (with installation links) / 必需技能（含安装链接）
+- Input data requirements / 输入数据要求
+- Configuration parameters / 配置参数
+- Usage caveats / 使用注意事项
+
+### 3. Configure / 配置
+
+Modify the configuration parameters (paths, API keys, etc.) to match your setup.
+
+修改配置参数（路径、API 密钥等）以匹配你的环境。
+
+### 4. Execute / 执行
+
+Run the EC through your agent's execution system (e.g., OpenClaw heartbeat).
+
+通过你的 Agent 执行系统运行 EC（例如 OpenClaw heartbeat）。
+
+---
+
+## Example: Daily Report Publishing / 示例：每日报告发布
+
+```bash
+# Navigate to the card / 进入卡片目录
+cd ExCard/daily-report/
+
+# Read the documentation / 阅读文档
+cat README.md
+
+# Check dependencies / 检查依赖
+# - moltbook skill installed? / moltbook 技能已安装？
+# - Input report available? / 输入报告可用？
+# - API key configured? / API 密钥已配置？
+
+# Modify EC-001.md with your paths / 根据你的路径修改 EC-001.md
+# Then execute via your agent framework / 然后通过你的 Agent 框架执行
+```
+
+---
+
+## Why OpenExCard? / 为什么选择 OpenExCard？
+
+| Problem / 问题 | Traditional / 传统方案 | OpenExCard |
+|----------------|------------------------|------------|
+| **Not production-ready** / 无法用于生产 | Examples lack error handling / 示例缺乏错误处理 | Battle-tested with real usage / 经过真实使用检验 |
+| **Unclear dependencies** / 依赖不清晰 | Hidden assumptions / 隐含假设 | Explicit requirements in README / README 中明确要求 |
+| **Hard to customize** / 难以定制 | One-size-fits-all / 一刀切 | Configurable parameters / 可配置参数 |
+| **No context** / 缺乏上下文 | Isolated snippets / 孤立代码片段 | Full workflow with documentation / 完整工作流与文档 |
+
+---
+
+## Contributing / 贡献
+
+Want to contribute an ExCard?
+
+想贡献一张 ExCard？
+
+1. Use the [template](templates/execution-card-template_en.md) / 使用[模板](templates/execution-card-template_cn.md)
+2. Test in production for at least 1 week / 在生产环境测试至少 1 周
+3. Document all dependencies and caveats / 记录所有依赖和注意事项
+4. Submit a PR / 提交 PR
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+详细指南请参见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+---
+
+## Current Cards / 现有卡片
+
+| Card / 卡片 | Description / 描述 | Status / 状态 |
+|-------------|-------------------|---------------|
+| [EC-001: Daily Report](ExCard/daily-report/) | Publish daily research reports to Moltbook / 发布每日研究报告到 Moltbook | ✅ Production / 生产级 |
+| [EC-002: Prospecting](ExCard/prospecting/) | Active prospecting on social platforms / 在社交平台主动获客 | ✅ Production / 生产级 |
+| [EC-003: Engagement](ExCard/engagement/) | Community engagement and support / 社区互动与支持 | ✅ Production / 生产级 |
+
+---
+
+## Roadmap / 路线图
+
+- [ ] Add more marketing cards (email outreach, content scheduling) / 添加更多营销卡片（邮件推广、内容排期）
+- [ ] Add research cards (data collection, report generation) / 添加研究卡片（数据采集、报告生成）
+- [ ] Create adapters for other agent frameworks (CrewAI, LangGraph) / 为其他 Agent 框架创建适配器（CrewAI、LangGraph）
+- [ ] Build a registry/discovery system / 构建注册表/发现系统
+
+---
+
+## License / 许可证
+
+MIT License - see [LICENSE](LICENSE) file
+
+MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+
+---
+
+## Acknowledgments / 致谢
+
+OpenExCard was developed by [Noah](https://github.com/noah-1106) while building [Moltbook](https://www.moltbook.com) daily research reports with AI agents.
+
+OpenExCard 由 [Noah](https://github.com/noah-1106) 在构建 [Moltbook](https://www.moltbook.com) 每日研究报告时开发。
+
+---
+
+**Note / 注意**: Each ExCard may have specific skill dependencies. Always check the card's README.md before use.
+
+每张 ExCard 可能有特定的技能依赖。使用前请务必检查卡片的 README.md。
