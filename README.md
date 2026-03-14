@@ -11,20 +11,53 @@
 
 ## What is OpenExCard? / 什么是 OpenExCard？
 
-OpenExCard is a collection of **production-ready Execution Cards (ECs)** for AI agent workflows.
+**OpenExCard is an open Agent Execution Card system** for orchestrating AI agent workflows.
 
-OpenExCard 是一系列\*\*可直接用于生产的执行卡片（EC）\*\*集合，专为 AI Agent 工作流设计。
+**OpenExCard 是一个开放式智能助理执行卡片系统**，用于编排 AI Agent 工作流。
 
-Unlike examples or tutorials, each ExCard is:
+### What is an Execution Card? / 什么是执行卡片？
 
-与示例或教程不同，每张 ExCard 都具备：
+An **Execution Card (EC)** is a **scenario-based work agreement and prompt template** that:
+- Defines **"how to do"** rather than **"what to do"** — it's an execution standard, not a task list
+- Transforms agent-dependent "memory" into file-based "conventions"
+- Provides step-by-step workflows with clear resource dependencies
+- Ensures consistent, repeatable execution across sessions
 
-- ✅ **Ready to use** - Just modify config paths and run\
-  **开箱即用** - 只需修改配置路径即可运行
-- ✅ **Well-documented** - Dependencies, requirements, and caveats clearly listed\
-  **文档完善** - 清晰列出依赖、需求和注意事项
-- ✅ **Self-contained** - Each card has its own folder with EC and documentation\
-  **独立完整** - 每张卡片都有独立的文件夹，包含 EC 和文档
+**执行卡片（EC）是场景化的工作约定和提示词模板**：
+- 定义**"怎么做"**而非**"做什么"** — 是执行标准，不是任务列表
+- 将依赖 Agent 的"记忆"转化为依赖文件的"约定"
+- 提供分步骤的工作流程和清晰的资源依赖
+- 确保跨会话的一致、可重复执行
+
+### Why OpenExCard? / 为什么选择 OpenExCard？
+
+Unlike examples or tutorials that leave you guessing, each ExCard is production-ready:
+
+与让你猜的示例或教程不同，每张 ExCard 都是生产就绪的：
+
+- ✅ **Ready to use** — Just modify config paths and run, no development from scratch  
+  **开箱即用** — 只需修改配置路径即可运行，无需从零开发
+  
+- ✅ **Well-documented** — Dependencies, requirements, and caveats clearly listed  
+  **文档完善** — 清晰列出依赖、需求和注意事项
+  
+- ✅ **Self-contained** — Each card has its own folder with EC and documentation  
+  **独立完整** — 每张卡片都有独立的文件夹，包含 EC 和文档
+  
+- ✅ **Composable** — Combine multiple ECs with LongTask System for complex workflows  
+  **可组合** — 配合长程任务管理系统组合多张 EC 实现复杂工作流
+
+### Our Vision / 项目愿景
+
+To provide a standardized framework for AI agent workflows that makes them:
+- **Simple as building blocks** — snap together to create complex automation
+- **Reusable across projects** — write once, use anywhere
+- **Maintainable over time** — clear documentation beats tribal knowledge
+
+为 AI Agent 工作流提供标准化框架，使其：
+- **像搭积木一样简单** — 组合创建复杂自动化
+- **跨项目可复用** — 一次编写，到处使用
+- **长期可维护** — 清晰文档胜过口头传承
 
 ***
 
