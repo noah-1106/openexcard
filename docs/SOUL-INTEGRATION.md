@@ -1,6 +1,6 @@
 # OpenExCard SOUL Integration / SOUL 集成指南
 
-> 将 OpenExCard 执行卡片系统集成到你的 Agent SOUL.md 中
+> **Version: 1.0.0** | 将 OpenExCard 执行卡片系统集成到你的 Agent SOUL.md 中
 
 ---
 
@@ -62,8 +62,9 @@
 ### How to Use EC / 如何使用执行卡片
 
 **Where to find ECs / 去哪里找 EC：**
-- Check `ExCard/` directory in your workspace / 检查工作区的 `ExCard/` 目录
-- Or ask user: "Is there an EC for [task name]?" / 或询问用户："是否有 [任务名] 的 EC？"
+- **Workspace**: `ExCard/` directory in your project / 项目中的 `ExCard/` 目录
+- **Global**: `~/.openexcard/cards/` for shared cards / 全局共享卡片目录
+- **Or ask user**: "Is there an EC for [task name]?" / 或询问用户
 
 **Before Execution / 执行前:**
 1. **Check** if an EC exists / 检查是否有对应 EC
@@ -77,7 +78,11 @@
 **During Execution / 执行中:**
 1. Follow the workflow step by step / 按步骤执行流程
 2. Validate inputs before processing / 处理前验证输入
-3. Save outputs to specified locations / 按约定保存输出
+3. **If a step fails**: Stop, log the error, and do not proceed / **如果步骤失败**：停止，记录错误，不再继续
+4. Save outputs to specified locations / 按约定保存输出
+
+**Error Handling Principle / 错误处理原则:**
+> Stop on error. Do not let failures cascade. / 出错即停，防止失败连锁反应。
 
 **After Execution / 执行后:**
 1. Update status in state files / 更新状态文件
