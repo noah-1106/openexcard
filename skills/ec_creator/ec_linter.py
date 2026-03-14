@@ -89,12 +89,13 @@ class ECLinter:
                     print(f"  {YELLOW}[!]{NC} Optional section {name} not found")
                     self.warnings += 1
         
-        # Check for numbered steps
-        if re.search(r'^[0-9]+\.', self.content, re.MULTILINE):
+        # Check for numbered steps (supports "1." and "Step 1:" formats)
+        if re.search(r'^[0-9]+\.', self.content, re.MULTILINE) or \
+           re.search(r'^Step\s+[0-9]+[:\.\)]', self.content, re.MULTILINE | re.IGNORECASE):
             print(f"  {GREEN}[✓]{NC} Numbered steps detected")
             self.passed += 1
         else:
-            print(f"  {YELLOW}[!]{NC} No numbered steps found (1., 2., 3.)")
+            print(f"  {YELLOW}[!]{NC} No numbered steps found (1., 2., 3. or Step 1:, Step 2:)")
             self.warnings += 1
     
     def check_paths(self):
@@ -123,9 +124,10 @@ class ECLinter:
             if '/' not in path_str and '\\' not in path_str:
                 continue
             
-            # Check if it's a template path
-            if any(tpl in path_str for tpl in ['YYYY-MM-DD', 'XXX', '{', '}', '$']):
-                print(f"  {YELLOW}[~]{NC} Template path: {path_str}")
+            # Check if it's a template path ({{variable}}, {{timestamp}}, YYYY-MM-DD, etc.)
+            if re.search(r'\{\{[^}]+\}\}', path_str) or \
+               any(tpl in path_str for tpl in ['YYYY-MM-DD', 'XXX', 'HHMMSS']):
+                print(f"  {YELLOW}[~]{NC} Template path (will be substituted): {path_str}")
                 continue
             
             path = Path(path_str)
