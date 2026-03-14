@@ -1,5 +1,7 @@
 # OpenExCard
 
+![OpenExCard Banner](docs/OpenExCard.jpg)
+
 **Open Agent Execution Cards** - Production-ready workflow cards for AI agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
