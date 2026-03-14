@@ -79,6 +79,10 @@ openexcard/
 │       ├── EC-003.md
 │       └── README.md
 ├── skills/                      # Recommended skills / 推荐的技能
+│   ├── ec_creator/              # EC Creator / 执行卡片创建工具
+│   │   ├── SKILL.md            # Skill documentation / 技能文档
+│   │   ├── ec_linter.py        # Python linter with auto-fix / Python 校验器（支持自动修复）
+│   │   └── rules/              # Validation rules / 校验规则
 │   └── longtask_system/         # LongTask System / 长程任务管理系统
 │       ├── SKILL.md
 │       └── task_template.json
@@ -133,11 +137,64 @@ A state-driven task orchestration engine for managing complex workflows that spa
 - **Error Recovery** / 错误恢复 - 支持重试和失败处理
 - **Perfect for** / 适用于: Daily reports, multi-step prospecting, content pipelines / 每日报告、多步骤获客、内容流水线
 
-#### EC_Creator / 执行卡片创建工具
+#### [EC Creator](skills/ec_creator/) / 执行卡片创建工具
 
-(Coming soon / 即将推出)
+A validation and correction tool for creating standardized Execution Cards.
 
-### 6. If you are working with OpenClaw / 如果你正在使用OpenClaw
+用于创建标准化执行卡片的校验和修正工具。
+
+- **Structure Validation** / 结构校验 - Checks logical blocks completeness (resources, workflow, conventions) / 检查逻辑块完整性（资源、工作流、约定）
+- **Path Verification** / 路径验证 - Validates all file paths and directories / 验证所有文件路径和目录
+- **Auto-Fix Suggestions** / 自动修复建议 - Returns copy-pasteable Markdown snippets / 返回可复制的 Markdown 片段
+- **Real Skill Scanning** / 真实技能扫描 - Checks `~/.openclaw/skills/` for skill existence / 检查 `~/.openclaw/skills/` 目录中的技能是否存在
+
+**Use it when:** / **使用场景：**
+- Creating a new EC from scratch / 从零创建新的 EC
+- Validating an existing EC before publishing / 发布前验证现有 EC
+- Converting draft workflows to standardized cards / 将草稿工作流转换为标准卡片
+
+**Workflow:** / **工作流程：**
+```
+Draft (temp_draft.md) → Lint → Fix → Validate → Standard EC (EC-XXX.md)
+```
+
+### 6. Create Your Own EC (Optional) / 创建自己的执行卡片（可选）
+
+If you need a custom EC not available in the repository:
+
+如果你需要仓库中没有的自定义 EC：
+
+```bash
+# 1. Write your workflow draft / 编写工作流草稿
+cat > temp_draft.md << 'EOF'
+## EC名称: My Custom Task
+## EC描述: Brief description of what this card does
+
+### 资源依赖
+- Skill: my-skill
+- File: input/data.json
+
+### 工作流程
+1. Read input data
+2. Process with skill
+3. Write output
+EOF
+
+# 2. Run EC Creator linter / 运行 EC Creator 校验
+python3 skills/ec_creator/ec_linter.py temp_draft.md
+
+# 3. Apply fixes and validate / 应用修复并验证
+# ... iterate until validation passes / ... 迭代直到验证通过
+
+# 4. Save as standard EC / 保存为标准 EC
+mv temp_draft.md ExCard/my-custom-task/EC-004.md
+```
+
+See [EC Creator SKILL.md](skills/ec_creator/SKILL.md) for detailed usage.
+
+详细用法参见 [EC Creator SKILL.md](skills/ec_creator/SKILL.md)。
+
+### 7. If you are working with OpenClaw / 如果你正在使用OpenClaw
 
 - STRONGLY RECOMMEND: Set a specific agent for task management / 强烈推荐：设定专用的任务管理agent
 - Update OpenExCard part in Soul.md / 在Soul.md文档中更新OpenExCard相关内容
