@@ -1,59 +1,18 @@
 # OpenExCard
 
-**Open Agent Execution Cards** - A workflow framework for AI agents
+**Open Agent Execution Cards** - Production-ready workflow cards for AI agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## What is OpenExCard?
 
-OpenExCard is a lightweight framework for structuring AI agent workflows through **Execution Cards (ECs)**.
+OpenExCard is a collection of **production-ready Execution Cards (ECs)** for AI agent workflows.
 
-Instead of writing complex prompt chains or relying on black-box automation, OpenExCard uses **scenario-based work agreements** that define:
-- **What** to do (inputs/outputs)
-- **How** to do it (step-by-step workflows)
-- **When** to do it (scheduling via Heartbeat)
-
-## Core Concepts
-
-### Execution Card (EC)
-An EC is a **scenario-based prompt template** that:
-- Defines a specific workflow (e.g., "Daily Report Publishing")
-- Includes resource dependencies (skills, files, templates)
-- Provides step-by-step execution flow
-- Saves outputs to agreed locations
-
-### Heartbeat
-A scheduling mechanism that:
-- Checks conditions (time, frequency, dependencies)
-- Triggers ECs when conditions are met
-- Separates "when" (Heartbeat) from "how" (EC)
-
-### LongTask (Optional)
-For complex, multi-step workflows that span hours or days:
-- State-driven task orchestration
-- Pause/resume capability
-- Progress tracking
-
-## Quick Start
-
-### Example: Daily Report Publishing
-
-```markdown
-## EC Name: Daily Research Report Publishing
-
-### Resource Dependencies
-- Skill: moltbook
-- Template: POST_TEMPLATE.md
-- Input: reports/daily-research-YYYY-MM-DD.md
-
-### Workflow
-1. Read input data (today's research)
-2. Read publishing template
-3. Draft post following template structure
-4. Save draft to posts/YYYY-MM-DD-draft.md
-5. Publish to Moltbook
-6. Update status in heartbeat-state.json
-```
+Unlike examples or tutorials, each ExCard is:
+- ✅ **Battle-tested** - Used in real production environments
+- ✅ **Ready to use** - Just modify config paths and run
+- ✅ **Well-documented** - Dependencies, requirements, and caveats clearly listed
+- ✅ **Self-contained** - Each card has its own folder with EC and documentation
 
 ## Repository Structure
 
@@ -61,38 +20,91 @@ For complex, multi-step workflows that span hours or days:
 openexcard/
 ├── README.md                    # This file
 ├── LICENSE                      # MIT License
-├── SPEC.md                      # Full specification
-├── examples/                    # Example ECs
-│   ├── EC-001-daily-report.md
-│   ├── EC-002-prospecting.md
-│   └── EC-003-engagement.md
-├── templates/                   # Reusable templates
-│   └── heartbeat-template.md
-└── guides/                      # Implementation guides
-    └── getting-started.md
+├── SPEC.md                      # (Coming soon) Full specification
+├── ExCard/                      # Production-ready execution cards
+│   ├── daily-report/            # Daily research report publishing
+│   │   ├── EC-001.md           # The execution card
+│   │   └── README.md           # Dependencies & usage guide
+│   ├── prospecting/             # Active prospecting & outreach
+│   │   ├── EC-002.md
+│   │   └── README.md
+│   └── engagement/              # Community engagement & support
+│       ├── EC-003.md
+│       └── README.md
+└── templates/                   # Reusable templates
+    └── ec-template.md          # Template for creating new ECs
+```
+
+## Quick Start
+
+### 1. Choose an ExCard
+Browse the `ExCard/` directory and pick a card that fits your needs.
+
+### 2. Check Dependencies
+Each card has a `README.md` with:
+- Required skills (with installation links)
+- Input data requirements
+- Configuration parameters
+- Usage caveats
+
+### 3. Configure
+Modify the configuration parameters (paths, API keys, etc.) to match your setup.
+
+### 4. Execute
+Run the EC through your agent's execution system (e.g., OpenClaw heartbeat).
+
+## Example: Daily Report Publishing
+
+```bash
+# Navigate to the card
+cd ExCard/daily-report/
+
+# Read the documentation
+cat README.md
+
+# Check dependencies
+# - moltbook skill installed?
+# - Input report available?
+# - API key configured?
+
+# Modify EC-001.md with your paths
+# Then execute via your agent framework
 ```
 
 ## Why OpenExCard?
 
 | Problem | Traditional | OpenExCard |
 |---------|-------------|------------|
-| **Inconsistent execution** | Same prompt, different results | Standardized ECs ensure consistency |
-| **Prompt chaos** | Scattered in notebooks/chats | Centralized, versioned EC files |
-| **No scheduling** | Manual triggering | Heartbeat automation |
-| **Black box automation** | Can't debug failures | Transparent, step-by-step flow |
-| **Team coordination** | Knowledge in someone's head | Documented, shareable ECs |
-
-## Use Cases
-
-- 🤖 **AI Agent Teams** - Coordinate multiple agents with clear handoffs
-- 📊 **Automated Reporting** - Daily/weekly data aggregation and publishing
-- 🎯 **Prospecting & Outreach** - Systematic lead generation
-- 🔄 **Content Operations** - Scheduled content creation and distribution
-- 📋 **Task Management** - Complex multi-step workflows with state tracking
+| **Not production-ready** | Examples lack error handling | Battle-tested with real usage |
+| **Unclear dependencies** | Hidden assumptions | Explicit requirements in README |
+| **Hard to customize** | One-size-fits-all | Configurable parameters |
+| **No context** | Isolated snippets | Full workflow with documentation |
 
 ## Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Want to contribute an ExCard?
+
+1. Use the [template](templates/ec-template.md)
+2. Test in production for at least 1 week
+3. Document all dependencies and caveats
+4. Submit a PR
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## Current Cards
+
+| Card | Description | Status |
+|------|-------------|--------|
+| [EC-001: Daily Report](ExCard/daily-report/) | Publish daily research reports to Moltbook | ✅ Production |
+| [EC-002: Prospecting](ExCard/prospecting/) | Active prospecting on social platforms | ✅ Production |
+| [EC-003: Engagement](ExCard/engagement/) | Community engagement and support | ✅ Production |
+
+## Roadmap
+
+- [ ] Add more marketing cards (email outreach, content scheduling)
+- [ ] Add research cards (data collection, report generation)
+- [ ] Create adapters for other agent frameworks (CrewAI, LangGraph)
+- [ ] Build a registry/discovery system
 
 ## License
 
@@ -101,3 +113,7 @@ MIT License - see [LICENSE](LICENSE) file
 ## Acknowledgments
 
 OpenExCard was developed by [Noah](https://github.com/noah-1106) while building [Moltbook](https://www.moltbook.com) daily research reports with AI agents.
+
+---
+
+**Note**: Each ExCard may have specific skill dependencies. Always check the card's README.md before use.
