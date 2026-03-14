@@ -235,10 +235,9 @@ Want to contribute an ExCard?
 
 想贡献一张 ExCard？
 
-1. Use the [template](skills/ec_creator/templates/execution-card-template_en.md) / 使用[模板](skills/ec_creator/templates/execution-card-template_cn.md)
-2. Test in production for at least 1 week / 在生产环境测试至少 1 周
-3. Document all dependencies and caveats / 记录所有依赖和注意事项
-4. Submit a PR / 提交 PR
+1. Test in production for at least 1 week / 在生产环境测试至少 1 周
+2. Document all dependencies and caveats / 记录所有依赖和注意事项
+3. Submit a PR / 提交 PR
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
