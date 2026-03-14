@@ -69,26 +69,20 @@ openexcard/
 ├── LICENSE                      # MIT License / MIT 许可证
 ├── SPEC.md                      # (Coming soon) Full specification / （即将推出）完整规范
 ├── ExCard/                      # Production-ready execution cards / 可直接用于生产的执行卡片
-│   ├── daily-report/            # Daily research report publishing / 每日研究报告发布
-│   │   ├── EC-001.md           # The execution card / 执行卡片主体
-│   │   └── README.md           # Dependencies & usage guide / 依赖与使用指南
-│   ├── prospecting/             # Active prospecting & outreach / 主动获客与推广
-│   │   ├── EC-002.md
-│   │   └── README.md
-│   └── engagement/              # Community engagement & support / 社区互动与支持
-│       ├── EC-003.md
-│       └── README.md
+│   └── {category}/              # Category folder / 分类文件夹
+│       ├── EC-XXX.md           # The execution card / 执行卡片主体
+│       └── README.md           # Dependencies & usage guide / 依赖与使用指南
 ├── skills/                      # Recommended skills / 推荐的技能
 │   ├── ec_creator/              # EC Creator / 执行卡片创建工具
 │   │   ├── SKILL.md            # Skill documentation / 技能文档
 │   │   ├── ec_linter.py        # Python linter with auto-fix / Python 校验器（支持自动修复）
+│   │   ├── templates/          # Reusable templates / 可复用模板
+│   │   │   ├── execution-card-template_en.md  # English template / 英文模板
+│   │   │   └── execution-card-template_cn.md  # Chinese template / 中文模板
 │   │   └── rules/              # Validation rules / 校验规则
 │   └── longtask_system/         # LongTask System / 长程任务管理系统
 │       ├── SKILL.md
 │       └── task_template.json
-└── templates/                   # Reusable templates / 可复用模板
-    ├── execution-card-template_en.md  # English template / 英文模板
-    └── execution-card-template_cn.md  # Chinese template / 中文模板
 ```
 
 ***
@@ -241,7 +235,7 @@ Want to contribute an ExCard?
 
 想贡献一张 ExCard？
 
-1. Use the [template](templates/execution-card-template_en.md) / 使用[模板](templates/execution-card-template_cn.md)
+1. Use the [template](skills/ec_creator/templates/execution-card-template_en.md) / 使用[模板](skills/ec_creator/templates/execution-card-template_cn.md)
 2. Test in production for at least 1 week / 在生产环境测试至少 1 周
 3. Document all dependencies and caveats / 记录所有依赖和注意事项
 4. Submit a PR / 提交 PR
@@ -254,11 +248,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## Current Cards / 现有卡片
 
-| Card / 卡片                                    | Description / 描述                                                | Status / 状态        |
-| -------------------------------------------- | --------------------------------------------------------------- | ------------------ |
-| [EC-001: Daily Report](ExCard/daily-report/) | Publish daily research reports to Moltbook / 发布每日研究报告到 Moltbook | ✅ Production / 生产级 |
-| [EC-002: Prospecting](ExCard/prospecting/)   | Active prospecting on social platforms / 在社交平台主动获客              | ✅ Production / 生产级 |
-| [EC-003: Engagement](ExCard/engagement/)     | Community engagement and support / 社区互动与支持                      | ✅ Production / 生产级 |
+| Card / 卡片 | Description / 描述 | Status / 状态 |
+| ----------- | ------------------ | ------------- |
+| _Coming soon..._ | _Waiting for community contributions_ | _-_ |
 
 ***
 
