@@ -47,16 +47,16 @@ Unlike examples or tutorials that leave you guessing, each ExCard is production-
 - ✅ **Composable** — Combine multiple ECs with LongTask System for complex workflows  
   **可组合** — 配合长程任务管理系统组合多张 EC 实现复杂工作流
 
-### Our Vision / 项目愿景
+### Project Goals / 项目目标
 
-To provide a standardized framework for AI agent workflows that makes them:
-- **Simple as building blocks** — snap together to create complex automation
+To make AI agent workflows:
+- **Simple as building blocks** — snap together ECs to create complex automation
 - **Reusable across projects** — write once, use anywhere
 - **Maintainable over time** — clear documentation beats tribal knowledge
 
-为 AI Agent 工作流提供标准化框架，使其：
-- **像搭积木一样简单** — 组合创建复杂自动化
-- **跨项目可复用** — 一次编写，到处使用
+让 AI Agent 工作流：
+- **像搭积木一样简单** — 组合 EC 创建复杂自动化
+- **跨项目可复用** — 一次编写，到处使用  
 - **长期可维护** — 清晰文档胜过口头传承
 
 ***
