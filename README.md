@@ -1,11 +1,11 @@
 # OpenExCard
 
-!\[OpenExCard Banner]\(docs/OpenExCard.jpg null)
+![OpenExCard Banner](docs/OpenExCard.jpg)
 
-**An open Agent Execution Cards** **system** - Production-ready workflow cards for AI agents\
+**An open Agent Execution Cards** **system** - Production-ready workflow cards for AI agents\
 **开放式的智能助理执行卡片** - 可直接用于生产的 AI Agent 工作流卡片
 
-[!\[License: MIT\](https://img.shields.io/badge/License-MIT-yellow.svg null)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ***
 
@@ -45,6 +45,10 @@ openexcard/
 │   └── engagement/              # Community engagement & support / 社区互动与支持
 │       ├── EC-003.md
 │       └── README.md
+├── skills/                      # Recommended skills / 推荐的技能
+│   └── longtask_system/         # LongTask System / 长程任务管理系统
+│       ├── SKILL.md
+│       └── task_template.json
 └── templates/                   # Reusable templates / 可复用模板
     ├── execution-card-template_en.md  # English template / 英文模板
     └── execution-card-template_cn.md  # Chinese template / 中文模板
@@ -85,9 +89,20 @@ Run the EC through your agent's execution system (e.g., OpenClaw heartbeat).
 
 ### 5. Skills recommended / 建议与这些技能配合使用
 
-longtask\_system / 长程任务管理系统：
+#### [LongTask System](skills/longtask_system/) / 长程任务管理系统
 
-EC\_Creater / ec创建：
+A state-driven task orchestration engine for managing complex workflows that span multiple sessions.
+
+状态驱动的任务编排引擎，用于管理跨会话的复杂工作流。
+
+- **State Persistence** / 状态持久化 - 任务状态保存到文件，可随时恢复
+- **Step Orchestration** / 步骤编排 - 定义任务步骤和依赖关系
+- **Error Recovery** / 错误恢复 - 支持重试和失败处理
+- **Perfect for** / 适用于: Daily reports, multi-step prospecting, content pipelines / 每日报告、多步骤获客、内容流水线
+
+#### EC_Creator / 执行卡片创建工具
+
+(Coming soon / 即将推出)
 
 ### 6. If you are working with OpenClaw / 如果你正在使用OpenClaw
 
@@ -178,7 +193,7 @@ MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
 
 OpenExCard was developed by [Noah](https://github.com/noah-1106) while working with OpenClaw AI agents.
 
-OpenExCard 由 [Noah](https://github.com/noah-1106) 与OpenClaw助理协作时开发。
+OpenExCard 由 [Noah](https://github.com/noah-1106) 与OpenClaw助理协作时开发。
 
 ***
 
