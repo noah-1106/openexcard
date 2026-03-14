@@ -89,13 +89,20 @@ class ECLinter:
                     print(f"  {YELLOW}[!]{NC} Optional section {name} not found")
                     self.warnings += 1
         
-        # Check for numbered steps (supports "1." and "Step 1:" formats)
-        if re.search(r'^[0-9]+\.', self.content, re.MULTILINE) or \
-           re.search(r'^Step\s+[0-9]+[:\.\)]', self.content, re.MULTILINE | re.IGNORECASE):
+        # Check for numbered steps (supports "1.", "Step 1:", "### Step 1:" formats)
+        step_patterns = [
+            r'^[0-9]+\.',                           # 1. Step name
+            r'^Step\s+[0-9]+[:\.\)]',               # Step 1: or Step 1.
+            r'^#{1,4}\s+Step\s+[0-9]+[:\.\)]',      # ### Step 1: (markdown headers)
+        ]
+        
+        steps_found = any(re.search(p, self.content, re.MULTILINE | re.IGNORECASE) for p in step_patterns)
+        
+        if steps_found:
             print(f"  {GREEN}[✓]{NC} Numbered steps detected")
             self.passed += 1
         else:
-            print(f"  {YELLOW}[!]{NC} No numbered steps found (1., 2., 3. or Step 1:, Step 2:)")
+            print(f"  {YELLOW}[!]{NC} No numbered steps found (1., Step 1:, or ### Step 1:)")
             self.warnings += 1
     
     def check_paths(self):
