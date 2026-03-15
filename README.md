@@ -72,17 +72,6 @@ openexcard/
 │   └── {category}/              # Category folder / 分类文件夹
 │       ├── EC-XXX.md           # The execution card / 执行卡片主体
 │       └── README.md           # Dependencies & usage guide / 依赖与使用指南
-├── skills/                      # Recommended skills / 推荐的技能
-│   ├── ec_creator/              # EC Creator / 执行卡片创建工具
-│   │   ├── SKILL.md            # Skill documentation / 技能文档
-│   │   ├── ec_linter.py        # Python linter with auto-fix / Python 校验器（支持自动修复）
-│   │   ├── templates/          # Reusable templates / 可复用模板
-│   │   │   ├── execution-card-template_en.md  # English template / 英文模板
-│   │   │   └── execution-card-template_cn.md  # Chinese template / 中文模板
-│   │   └── rules/              # Validation rules / 校验规则
-│   └── longtask_system/         # LongTask System / 长程任务管理系统
-│       ├── SKILL.md
-│       └── task_template.json
 ```
 
 ***
@@ -120,7 +109,7 @@ Run the EC through your agent's execution system (e.g., OpenClaw heartbeat).
 
 ### 5. Skills recommended / 建议与这些技能配合使用
 
-#### [LongTask System](skills/longtask_system/) / 长程任务管理系统
+#### [LongTask System](https://github.com/noah-1106/Skills_Repo/tree/main/skills/longtask_system) / 长程任务管理系统
 
 A state-driven task orchestration engine for managing complex workflows that span multiple sessions.
 
@@ -131,7 +120,7 @@ A state-driven task orchestration engine for managing complex workflows that spa
 - **Error Recovery** / 错误恢复 - 支持重试和失败处理
 - **Perfect for** / 适用于: Daily reports, multi-step prospecting, content pipelines / 每日报告、多步骤获客、内容流水线
 
-#### [EC Creator](skills/ec_creator/) / 执行卡片创建工具
+#### [EC Creator](https://github.com/noah-1106/Skills_Repo/tree/main/skills/ec_creator) / 执行卡片创建工具
 
 A validation and correction tool for creating standardized Execution Cards.
 
@@ -175,7 +164,7 @@ cat > temp_draft.md << 'EOF'
 EOF
 
 # 2. Run EC Creator linter / 运行 EC Creator 校验
-python3 skills/ec_creator/ec_linter.py temp_draft.md
+python3 ~/.openclaw/skills/ec_creator/ec_linter.py temp_draft.md
 
 # 3. Apply fixes and validate / 应用修复并验证
 # ... iterate until validation passes / ... 迭代直到验证通过
@@ -184,7 +173,7 @@ python3 skills/ec_creator/ec_linter.py temp_draft.md
 mv temp_draft.md ExCard/my-custom-task/EC-004.md
 ```
 
-See [EC Creator SKILL.md](skills/ec_creator/SKILL.md) for detailed usage.
+See [EC Creator SKILL.md](https://github.com/noah-1106/Skills_Repo/blob/main/skills/ec_creator/SKILL.md) for detailed usage.
 
 详细用法参见 [EC Creator SKILL.md](skills/ec_creator/SKILL.md)。
 
@@ -192,7 +181,7 @@ See [EC Creator SKILL.md](skills/ec_creator/SKILL.md) for detailed usage.
 
 - STRONGLY RECOMMEND: Set a specific agent for task management / 强烈推荐：设定专用的任务管理agent
 - Update OpenExCard part in Soul.md / 在Soul.md文档中更新OpenExCard相关内容
-- Install skills to work with, longtask\_system, EC\_Creater... / 安装协作的skills，如长程任务管理、ec创建等
+- Install skills from [Skills_Repo](https://github.com/noah-1106/Skills_Repo) / 从技能仓库安装所需技能，如长程任务管理、EC创建等
 
 ***
 

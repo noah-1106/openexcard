@@ -1,74 +1,71 @@
-# EC-001: Moltbook Daily Research Report
+# EC-001: Social Content Publishing / 社交内容发布
 
 ## 执行卡片名称
-Moltbook每日调研报告发布
+Social Content Publishing / 社交内容发布
 
 ## 用途
-基于路路的调研报告，整理并发布为Moltbook平台主帖
+基于输入内容源，整理并发布为社交平台主帖。适用于每日报告、新闻聚合、内容策展等自动化发布场景。
 
 ---
 
 ## 📋 依赖要求
 
 ### 必需技能
-- **moltbook** - Moltbook社交平台操作技能
-  - 安装路径: `~/.openclaw/skills/moltbook/`
-  - API文档: [Moltbook SKILL.md](https://www.moltbook.com/skill.md)
-  - 权限: 需要有效的API Key
+- **{platform_skill}** - 目标社交平台操作技能
+  - 示例: `moltbook`, `twitter`, `discord` 等
+  - 功能: 发布帖子、读取feed
 
 ### 输入数据
-- **路路调研报告** - 每日生成的研究数据
-  - 路径: `~/.openclaw/workspace-tanluzhe/reports/daily-research-YYYY-MM-DD.md`
+- **内容源文件** - 由上游Agent或工具生成的内容
+  - 路径: `{input_content_path}`（需配置）
   - 格式: Markdown
-  - 生成时间: 每日05:47左右
+  - 示例: 调研报告、新闻摘要、数据报告
 
 ### 模板文件
-- **帖子模板** - 发布格式规范
-  - 路径: `~/.openclaw/workspace/moltbook/POST_TEMPLATE.md`
+- **发布模板** - 定义帖子结构和格式规范
+  - 路径: `{template_path}`（需配置）
+  - 作用: 确保发布内容格式统一
 
 ---
 
 ## ⚙️ 配置参数
 
-| 参数 | 说明 | 默认值 |
+| 参数 | 说明 | 示例值 |
 |------|------|--------|
-| `report_path` | 输入报告路径 | `workspace-tanluzhe/reports/` |
-| `draft_path` | 草稿保存路径 | `workspace/moltbook/posts/` |
-| `api_key` | Moltbook API Key | 从环境变量读取 |
-| `submolt` | 发布板块 | `general` |
+| `{platform_skill}` | 平台技能名称 | `moltbook` |
+| `{platform_name}` | 平台显示名称 | Moltbook |
+| `{input_content_path}` | 输入内容路径 | `workspace/reports/daily-content.md` |
+| `{template_path}` | 模板文件路径 | `workspace/templates/post-template.md` |
+| `{draft_save_path}` | 草稿保存目录 | `workspace/posts/drafts/` |
+| `{state_file_path}` | 状态记录文件 | `memory/publish-state.json` |
 
 ---
 
 ## 🔄 执行流程
 
-### 1. 读取输入数据
-- 读取路路的调研报告 `daily-research-YYYY-MM-DD.md`
-- 提取TOP5热点话题及跨行业关联分析
+### 1. 读取输入内容
+- 读取内容源文件 `{input_content_path}`
+- 提取关键信息和核心要点
 
 ### 2. 读取发布模板
-- 读取帖子模板 `POST_TEMPLATE.md`
-- 理解模板结构和核心原则（数据规模、分析洞察、价值感）
+- 读取模板文件 `{template_path}`
+- 理解格式要求和结构规范
 
 ### 3. 撰写帖子草稿
 - 基于模板格式撰写帖子正文
-- **必须包含**：
-  - 数据规模（文章数、平台数、关联热点数）
-  - 核心洞察（跨行业关联、热度分析）
-  - 付费购买信息（1.5 USDC、Base链）
-- **价值感自检**：如果我是买家，这帖子值1.5 USDC吗？
+- 确保内容对目标读者有价值
 
 ### 4. 保存草稿（必须先做！）
-- 保存位置: `~/.openclaw/workspace/moltbook/posts/YYYY-MM-DD-draft.md`
-- 防止API失败丢失内容
+- 保存位置: `{draft_save_path}/YYYY-MM-DD-draft.md`
+- 防止API失败导致内容丢失
 
-### 5. 发布到Moltbook
-- 使用 moltbook skill 发布帖子
-- 使用Python urllib，不用curl（避免SSL问题）
-- 遵守20秒评论冷却时间
-- 发布后记录帖子ID
+### 5. 发布到平台
+- 使用平台技能发布帖子
+- 遵守平台API限制和冷却时间
+- 记录帖子ID
 
 ### 6. 更新状态
-- 更新 `memory/heartbeat-state.json` 中的 `last_post_date`
+- 更新状态记录文件
 - 记录发布成功状态
 
 ---
@@ -76,44 +73,46 @@ Moltbook每日调研报告发布
 ## ⚠️ 注意事项
 
 ### 前置条件
-1. 确保路路的报告已生成（检查文件存在）
-2. 确保Moltbook API Key有效
-3. 确保在发布窗口内（06:00-07:01）或已获授权补发
+1. 确保内容源文件已生成且存在
+2. 确保平台API Key有效
+3. 确保在预定的发布窗口内（如需要）
 
 ### 长度限制
-- Moltbook帖子有长度限制（约2000-3000字符）
-- 过长会被CloudFront拦截
-- 建议精简结构，表格代替长文本
+- 不同平台对帖子长度有不同限制
+- 建议精简结构，使用表格或列表代替长文本
+- 超长内容可能被拦截或截断
 
-### 验证挑战
-- 发布后可能需要完成数学验证挑战
-- 检查帖子状态，如pending需及时验证
+### API限制
+- 遵守平台API调用频率限制
+- 注意冷却时间，避免触发限流
+- 发布后可能需要完成验证挑战
 
 ---
 
 ## 📝 输出约定
 
-- **发布位置**: Moltbook r/general 板块
-- **草稿保存**: `moltbook/posts/YYYY-MM-DD-draft.md`
-- **状态记录**: `memory/heartbeat-state.json`
+- **发布位置**: {platform_name} 平台
+- **草稿保存**: `{draft_save_path}/YYYY-MM-DD-draft.md`
+- **状态记录**: `{state_file_path}`
 
 ---
 
 ## 🎯 适用场景
 
-- **每日例行**: 06:00-07:01 heartbeat触发
-- **手动补发**: 当报告延迟生成时
-- **紧急发布**: 特殊情况下手动触发
+- **每日例行发布**: 定时发布日报、周报
+- **内容策展**: 聚合和分享行业资讯
+- **新闻聚合**: 自动发布新闻摘要
+- **营销内容**: 发布产品更新、促销活动
 
 ---
 
 ## 🔗 相关链接
 
-- [Moltbook API文档](https://www.moltbook.com/skill.md)
-- [路路工作区](../../workspace-tanluzhe/)
-- [帖子模板](../../workspace/moltbook/POST_TEMPLATE.md)
+- [平台技能文档]（根据你的平台填写）
+- [EC-002 主动获客](../prospecting/) - 可配合使用
+- [EC-003 互动响应](../engagement/) - 可配合使用
 
 ---
 
-*版本: 1.0*
-*最后更新: 2026-03-14*
+*版本: 1.0*  
+*最后更新: 2026-03-15*
