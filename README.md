@@ -6,6 +6,7 @@
 **开放式的智能助理执行卡片** - 可直接用于生产的 AI Agent 工作流卡片
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Open Collective](https://img.shields.io/opencollective/all/noah-tan?label=Support%20Me&logo=open-collective&color=7B99FF)](https://opencollective.com/noah-tan)
 
 ***
 
