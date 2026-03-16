@@ -237,9 +237,26 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## Current Cards / 现有卡片
 
-| Card / 卡片 | Description / 描述 | Status / 状态 |
-| ----------- | ------------------ | ------------- |
-| _Coming soon..._ | _Waiting for community contributions_ | _-_ |
+### Content Creation / 内容创作
+
+| Card / 卡片 | Description / 描述 | Category / 分类 |
+| ----------- | ------------------ | --------------- |
+| [EC-001-standard-article](ExCard/EC-001-standard-article/) | 标准文章创作 (1500-2000字) - 包含调研、风格加载、配图预留、humanizer润色 | Writing / 写作 |
+| [EC-002-article-polish](ExCard/EC-002-article-polish/) | 文章润色修改 - 支持humanizer/结构调整/语气转换/配图预留/全面润色 | Writing / 写作 |
+| [EC-005-style-fingerprint](ExCard/EC-005-style-fingerprint/) | 写作风格指纹提取 - 分析样本文本提取风格特征供后续写作使用 | Writing / 写作 |
+
+### Data Collection / 数据采集
+
+| Card / 卡片 | Description / 描述 | Category / 分类 |
+| ----------- | ------------------ | --------------- |
+| [EC-001-fetch-rss-24h](ExCard/EC-001-fetch-rss-24h/) | 24小时RSS数据采集 - 多源RSS抓取、数据库存储、HTML报告生成 | Data / 数据 |
+| [EC-002-sync-social-trends](ExCard/EC-002-sync-social-trends/) | 社交媒体趋势整合 - GitHub+知乎/微博/百度/头条/抖音/小红书多平台数据 | Data / 数据 |
+
+### Image Generation / 图像生成
+
+| Card / 卡片 | Description / 描述 | Category / 分类 |
+| ----------- | ------------------ | --------------- |
+| [EC-002-image-generation](ExCard/EC-002-image-generation/) | 图像生成服务 - 基于Coze/Seedream生成概念图、海报、社媒配图 | Image / 图像 |
 
 ***
 
