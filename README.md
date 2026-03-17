@@ -48,6 +48,26 @@ Unlike examples or tutorials that leave you guessing, each ExCard is production-
 - ✅ **Composable** — Combine multiple ECs with LongTask System for complex workflows  
   **可组合** — 配合长程任务管理系统组合多张 EC 实现复杂工作流
 
+### Design Philosophy / 设计哲学
+
+> **"让工作流程成为人与AI平等遵守和传承的组织资产，而非绑定于某个人的个人技艺"**
+> 
+> **"Workflows as organizational assets, equally honored by humans and AI, not personal crafts bound to individuals"**
+
+**Three Core Beliefs / 三大信仰：**
+
+1. **Equal Partnership / 平等协作**  
+   The truth of workflows lies in files, not in anyone's memory. Both humans and AI follow the same documented conventions.
+   工作流的真相在文件里，不在任何人的记忆中。人类和 AI 都遵循同样的文件约定。
+
+2. **Transferable, Not Bound / 可传承，非绑定**  
+   Workflows exist independently of individuals (human or AI), becoming digital assets that persist and evolve.
+   工作流独立于个体（人或 AI）而存在，成为可持续演进的数字资产。
+
+3. **From Artisanal to Industrial / 从手工作坊到工业化**  
+   Transforming personal craftsmanship into reproducible, standardized methodologies that any agent can execute.
+   将个人技艺转化为可复制的标准化方法论，任何代理都能执行。
+
 ### Project Goals / 项目目标
 
 To make AI agent workflows:
